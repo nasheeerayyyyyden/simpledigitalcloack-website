@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Digital Clock Example</title>
+	<style type="text/css">
+		body {
+			background-color: #222;
+			color: #fff;
+			font-family: "Lucida Console", Monaco, monospace;
+			font-size: 3em;
+			text-align: center;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="clock"></div>
+
+	<script>
+		function updateClock() {
+			var now = new Date();
+			var hours = now.getHours();
+			var minutes = now.getMinutes();
+			var seconds = now.getSeconds();
+			var timeString = hours + ':' + padZero(minutes) + ':' + padZero(seconds);
+			document.getElementById('clock').textContent = timeString;
+		}
+
+		function padZero(num) {
+			if (num < 10) {
+				return '0' + num;
+			} else {
+				return num;
+			}
+		}
+
+		setInterval(updateClock, 1000);
+	</script>
+</body>
+</html>
